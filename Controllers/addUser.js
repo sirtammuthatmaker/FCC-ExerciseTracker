@@ -6,7 +6,10 @@ module.exports = function (username) {
       if (res === true) {
         
         reject("User name exists");
-      } else {
+      } else if (username === ''){
+        reject("Enter valid username!");
+      }
+      else {
         const newUser = new User({ count: 0, name: username, log: [] });
         
 

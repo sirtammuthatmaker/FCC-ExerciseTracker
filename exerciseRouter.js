@@ -39,11 +39,16 @@ router.post('/new-user',(req,res)=>{
 
 //log exercise
 router.post('/add',(req,res)=>{
-    res.json({message: "POST API for New Exercise working"});
+    
     //Retrieve form data and recieves a PROMISE
     const addedExercise = controllers.logExercise(req.body.userId,req.body.description,req.body.duration,req.body.date);
 
-    console.log(addedExercise);
+    addedExercise.then((result)=>{
+        res.json(result);
+    })
+    .catch(err => {
+        res.send(err);
+    })
 
 });
 
