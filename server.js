@@ -3,10 +3,19 @@ const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
 
+require('dotenv').config();
+
 const cors = require('cors')
 
-const mongoose = require('mongoose')
-mongoose.connect(process.env.MLAB_URI || 'mongodb://localhost/exercise-track' )
+const mongoose = require('mongoose');
+
+mongoose.connect(process.env.DB_URI,{ useNewUrlParser: true, useUnifiedTopology: true  })
+.then(()=>{
+    console.log("Connection Success!");
+})
+.catch((error)=>{
+    console.log("Connection failed:  "+error);
+});
 
 app.use(cors())
 
