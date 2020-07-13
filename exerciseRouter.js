@@ -11,7 +11,7 @@ router.get('/users',(req,res)=>{
     users
      .then(users => res.json(users))
     .catch(err => {
-        res.status(404).json({error: err});
+        res.send(err.message);
     });
     
 
