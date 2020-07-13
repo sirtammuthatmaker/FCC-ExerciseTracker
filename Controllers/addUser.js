@@ -16,9 +16,6 @@ module.exports = function (username) {
           .catch((err) => reject(err));
       }
     });
-    //Check if user exists
-    if (User.exists({ name: username })) {
-    } else {
-    }
+    
   });
 };
