@@ -4,11 +4,11 @@ module.exports = function (username) {
   return new Promise((resolve, reject) => {
     User.exists({ name: username }).then((res) => {
       if (res === true) {
-        console.log("adding failed");
+        
         reject("User name exists");
       } else {
         const newUser = new User({ count: 0, name: username, log: [] });
-        console.log("adding attempted");
+        
 
         newUser
           .save()

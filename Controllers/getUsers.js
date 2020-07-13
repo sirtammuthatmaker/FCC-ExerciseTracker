@@ -11,7 +11,7 @@ module.exports = function () {
       
       //Check if users exists
       if (result.length === 0) {
-        throw new Error("No Users exists");
+        throw new Error("No Users exist!");
       } else {
         resolve(result);
       }
