@@ -1,13 +1,17 @@
 
 const express = require('express')
-const app = express()
+
 const bodyParser = require('body-parser')
+const mongoose = require('mongoose');
+const router = require('./exerciseRouter');
 
 require('dotenv').config();
 
 const cors = require('cors')
 
-const mongoose = require('mongoose');
+const app = express()
+
+
 
 mongoose.connect(process.env.DB_URI,{ useNewUrlParser: true, useUnifiedTopology: true  })
 .then(()=>{
@@ -29,10 +33,10 @@ app.get('/', (req, res) => {
 });
 
 
-// Not found middleware
-app.use((req, res, next) => {
-  return next({status: 404, message: 'not found'})
-})
+// // Not found middleware
+// app.use((req, res, next) => {
+//   return next({status: 404, message: 'not found'})
+// })
 
 // Error Handling middleware
 app.use((err, req, res, next) => {
@@ -52,6 +56,9 @@ app.use((err, req, res, next) => {
   res.status(errCode).type('txt')
     .send(errMessage)
 })
+
+
+app.use('/api/exercise',router);
 
 const listener = app.listen(process.env.PORT || 3000, () => {
   console.log('Your app is listening on port ' + listener.address().port)
