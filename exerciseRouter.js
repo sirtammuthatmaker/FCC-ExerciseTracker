@@ -18,9 +18,15 @@ router.get('/users',(req,res)=>{
 
 });
 
+//Display User Log
 router.get('/log',(req,res)=>{
 
-    res.json({message: "GET API for LOG working"});
+    
+    const userLog = controllers.userLog(req.query.userId);
+
+    userLog
+     .then(logs => {res.status(200).json(logs)})
+     .catch(err => res.send(err));
 
 });
 
