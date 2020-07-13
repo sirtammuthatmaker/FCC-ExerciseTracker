@@ -8,11 +8,12 @@
 		"start:server": "nodemon server.js"
 	},
 	"dependencies": {
-		"express": "^4.17.1",
-		"mongoose": "^5.9.23",
-		"mongodb": "^3.5.9",
 		"body-parser": "^1.19.0",
 		"cors": "^2.8.5",
+		"express": "^4.17.1",
+		"moment": "^2.27.0",
+		"mongodb": "^3.5.9",
+		"mongoose": "^5.9.23",
 		"shortid": "^2.2.15"
 	},
 	"engines": {

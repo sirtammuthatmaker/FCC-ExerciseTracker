@@ -1,9 +1,12 @@
-const mongoose = require('mongoose');
 
-const exerciseSchema = mongoose.Schema({
-    description: {type: String},
-    duration: {type: Number},
-    date: {type: String}
-});
+module.exports = class Exercise {
+  description;
+  duration;
+  date;
 
-module.exports = mongoose.model("Exercise",exerciseSchema);
+  constructor(description, duration, date) {
+    this.description = description;
+    this.duration = duration;
+    this.date = date;
+}
+}

@@ -37,9 +37,12 @@ router.post('/new-user',(req,res)=>{
 
 });
 
-//Add Exercise
+//log exercise
 router.post('/add',(req,res)=>{
     res.json({message: "POST API for New Exercise working"});
+    //Retrieve form data and recieves a PROMISE
+    const exercise = controllers.logExercise(req.body.userId,req.body.description,req.body.duration,req.body.date);
+
     
 
 });
