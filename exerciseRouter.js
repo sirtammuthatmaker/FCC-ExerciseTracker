@@ -1,12 +1,17 @@
 const express = require('express');
 const router = express.Router();
-const User = require('./models/user');
 
 const controllers = require('./Controllers');
 
 router.get('/users',(req,res)=>{
 
-    res.json({message: "GET API for users working"});
+    
+    let users = controllers.getUsers();
+    
+    users
+     .then(users => res.json(users))
+    .catch(err => res.json(err));
+    
 
 });
 
@@ -16,6 +21,7 @@ router.get('/log',(req,res)=>{
 
 });
 
+//Add New User
 router.post('/new-user',(req,res)=>{
     
     let newUser = controllers.addUser(req.body.username);
