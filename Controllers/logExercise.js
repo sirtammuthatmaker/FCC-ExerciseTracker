@@ -27,9 +27,9 @@ module.exports = function (id, description, duration, date) {
             user.save();
             resolve({
               _id: user._id,
-              username: user.name,
+              username: user.username,
               date:exercise.date,
-              duration: parseInt(exercise.duration) ,
+              duration: exercise.duration,
               description: exercise.description
             });
           } else {

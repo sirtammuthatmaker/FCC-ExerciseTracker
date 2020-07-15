@@ -37,7 +37,7 @@ router.post('/new-user',(req,res)=>{
     let newUser = controllers.addUser(req.body.username);
     newUser
     .then(result => {
-        res.status(201).json({_id:result._id, username:result.name});
+        res.status(201).json({_id:result._id, username:result.username});
 
     })
     .catch(err => res.send(err));

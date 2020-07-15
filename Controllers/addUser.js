@@ -2,7 +2,7 @@ const User = require("../models/user");
 
 module.exports = function (username) {
   return new Promise((resolve, reject) => {
-    User.exists({ name: username }).then((res) => {
+    User.exists({ username: username }).then((res) => {
       if (res === true) {
         
         reject("User name exists");
@@ -10,7 +10,7 @@ module.exports = function (username) {
         reject("Enter valid username!");
       }
       else {
-        const newUser = new User({ count: 0, name: username, log: [] });
+        const newUser = new User({ count: 0, username: username, log: [] });
         
 
         newUser
