@@ -29,7 +29,7 @@ module.exports = function (id, description, duration, date) {
               _id: user._id,
               username: user.name,
               date:exercise.date,
-              duration: exercise.duration,
+              duration: parseInt(exercise.duration) ,
               description: exercise.description
             });
           } else {
