@@ -22,7 +22,8 @@ router.get('/users',(req,res)=>{
 router.get('/log',(req,res)=>{
 
     
-    const userLog = controllers.userLog(req.query.userId,req.query.from, req.query.to);
+    
+    const userLog = controllers.userLog(req.query.userId,req.query.from, req.query.to, req.query.limit);
 
     userLog
      .then(logs => {res.status(200).json(logs)})

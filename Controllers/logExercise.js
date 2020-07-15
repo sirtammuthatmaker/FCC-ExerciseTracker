@@ -1,7 +1,6 @@
 const Exercise = require("../models/Exercise");
 const User = require("../models/user");
 const moment = require("moment");
-const { ObjectID } = require("mongodb");
 const { isValidObjectId } = require("mongoose");
 
 module.exports = function (id, description, duration, date) {
@@ -27,7 +26,7 @@ module.exports = function (id, description, duration, date) {
             ++user.count;
             user.save();
             resolve({
-              id: user._id,
+              _id: user._id,
               username: user.name,
               date:exercise.date,
               duration: exercise.duration,
